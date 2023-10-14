@@ -3267,7 +3267,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: maya2sketchfab.fbx
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5821260146724685680, guid: 8c7544ca89e53f041912308cf1cbcaaa, type: 3}
+    - {fileID: 6365909388210414269, guid: 8c7544ca89e53f041912308cf1cbcaaa, type: 3}
+    - {fileID: 939125093739265133, guid: 8c7544ca89e53f041912308cf1cbcaaa, type: 3}
+    - {fileID: 123869656916432999, guid: 8c7544ca89e53f041912308cf1cbcaaa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3618,7 +3622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021972763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -41,7 +41,7 @@ namespace DATA.Scripts.Weapon
                 _currentWeapon = 0;
             }
             GameObject b = weapons[_currentWeapon];
-            StartCoroutine(IEDelaySwitch(0.5f / 3f, a, b));
+            StartCoroutine(IEDelaySwitch(0.5f / 5f, a, b));
 
 
         }
