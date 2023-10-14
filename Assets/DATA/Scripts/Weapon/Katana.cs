@@ -50,7 +50,7 @@ namespace DATA.Scripts.Weapon
             if(Input.GetMouseButtonDown(1) && _canUseSkill)
             {
                 StartCoroutine(IEDelaySkill(delayBeforeSkill));
-                player.transform.DOMove(player.position + player.forward * 30, 0.5f);
+                player.GetComponent<Rigidbody>().AddForce(player.forward * 300000 * Time.deltaTime,ForceMode.Impulse);
                 _audioSource[1].Play();
                 _audioSource[0].Play();
                 _anim.ResetTrigger(Attack);

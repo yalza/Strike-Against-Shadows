@@ -37,6 +37,7 @@ namespace DATA.Scripts.Weapon
         public GameObject projectile;
         public AudioClip fireSfx;
         public float distanceRaycast = 1000f;
+        private bool _isFiring;
         [Space]
         #endregion
         
@@ -93,8 +94,7 @@ namespace DATA.Scripts.Weapon
 
         private void Update()
         {
-
-            if (Input.GetKeyDown(KeyCode.R) && curentAmmo < clipSize)
+            if (Input.GetKeyDown(KeyCode.R) && curentAmmo < clipSize && !_isFiring)
             {
                 Reload();
             }
@@ -105,19 +105,26 @@ namespace DATA.Scripts.Weapon
                 {
                     if (Input.GetMouseButton(0))
                     {
+                        _isFiring = true;
                         Fire();
                         Recoil();
                         StartCoroutine(IEDelayFire(delayBeforeFire));
+                    }
+                    else
+                    {
+                        _isFiring = false;
                     }
                 }
                 else
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
+                        
                         Fire();
                         Recoil();
                         StartCoroutine(IEDelayFire(delayBeforeFire));
                     }
+                    
                 }
 
             }

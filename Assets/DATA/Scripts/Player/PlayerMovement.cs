@@ -65,6 +65,13 @@ namespace DATA.Scripts.Player
             Grounded = true;
         }
 
+        private void Start()
+        {
+            _rigidbody.detectCollisions = true;
+            _rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+            _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        }
+
         private void OnDisable()
         {
             LockCursor = false;
