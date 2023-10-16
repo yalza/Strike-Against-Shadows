@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 namespace DATA.Scripts.Weapon
 {
@@ -26,13 +22,10 @@ namespace DATA.Scripts.Weapon
             _audioSource = GetComponents<AudioSource>();
         }
 
-        void Start()
-        {
-            
-        }
-
         private void OnEnable()
         {
+            _canAtk = true;
+            _canUseSkill = true;
             _audioSource[0].Stop();
             _audioSource[1].Stop();
         }
@@ -50,7 +43,7 @@ namespace DATA.Scripts.Weapon
             if(Input.GetMouseButtonDown(1) && _canUseSkill)
             {
                 StartCoroutine(IEDelaySkill(delayBeforeSkill));
-                player.GetComponent<Rigidbody>().AddForce(player.forward * 300000 * Time.deltaTime,ForceMode.Impulse);
+                player.GetComponent<Rigidbody>().AddForce(player.forward * (300000 * Time.deltaTime),ForceMode.Impulse);
                 _audioSource[1].Play();
                 _audioSource[0].Play();
                 _anim.ResetTrigger(Attack);

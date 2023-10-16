@@ -10171,6 +10171,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4110382020423087116}
+  - component: {fileID: 6183014379928968203}
+  - component: {fileID: 4209250923497644991}
   m_Layer: 0
   m_Name: AK48
   m_TagString: Untagged
@@ -10195,6 +10197,138 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &6183014379928968203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872263190292668121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94855c994670a36468500ff0a148d794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  auto: 0
+  weaponModel: {fileID: 7872263190292668121}
+  delayBeforeFire: 0.1
+  muzzleSpot: {fileID: 8258600617347480482}
+  muzzleFlashVfx: {fileID: 100000, guid: 03a4a1935a9f4454c861dfa0aa6df562, type: 3}
+  explosionVfx: {fileID: 100008, guid: 7075bd5fe1480184695a32611c15da57, type: 3}
+  fireSfx: {fileID: 8300000, guid: 0a50c7665ebe7de4f86f24fa0ae29d33, type: 3}
+  distanceRaycast: 1000
+  acuracy: 10
+  crossHairTop: {fileID: 0}
+  crossHairLeft: {fileID: 0}
+  crossHairRight: {fileID: 0}
+  crossHairBottom: {fileID: 0}
+  autoReload: 1
+  clipSize: 30
+  curentAmmo: 120
+  maxAmmo: 120
+  reloadSfx: {fileID: 8300000, guid: 3c18c5976830df74994091b81f2c5276, type: 3}
+  recoilKickBackMin: 0.05
+  recoilKickBackMax: 0.1
+  recoilRotationMin: 1
+  recoilRotationMax: 2
+  recoilRecoveryRate: 20
+--- !u!82 &4209250923497644991
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872263190292668121}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7875067002648681280
 GameObject:
   m_ObjectHideFlags: 0

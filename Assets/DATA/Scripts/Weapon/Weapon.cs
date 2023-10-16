@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using DATA.Scripts.Core;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -32,22 +34,26 @@ namespace DATA.Scripts.Weapon
         [Space]
         [Header("Fire")]
         public float delayBeforeFire = 0.1f;
-        public bool canFire = true;
+        private bool _canFire = true;
         public Transform muzzleSpot;
-        public GameObject projectile;
+        public GameObject muzzleFlashVfx;
+        public GameObject explosionVfx;
         public AudioClip fireSfx;
         public float distanceRaycast = 1000f;
         private bool _isFiring;
+        private GameObject _muzzleFlash;
         [Space]
         #endregion
         
         #region Accuracy
         [Space]
         [Header("Acuracy")]
-        public float accuracy = 80f;
-        private float _currentAccuracy;
-        public float accuracyDropPerShot = 1f;
-        public float accuracyRecoverRate = 0.1f;
+        public float acuracy = 5f;
+        public RectTransform crossHairTop;
+        public RectTransform crossHairLeft;
+        public RectTransform crossHairRight;
+        public RectTransform crossHairBottom;
+        
         [Space]
         #endregion
         
@@ -90,10 +96,22 @@ namespace DATA.Scripts.Weapon
         private void OnEnable()
         {
             _audioSource.Stop();
+            _canFire = true;
+            _isFiring = false;
+        }
+
+        private void OnDisable()
+        {
+            StopAllCoroutines();
         }
 
         private void Update()
         {
+            if (_muzzleFlash != null)
+            {
+                _muzzleFlash.transform.position = muzzleSpot.position;
+            }
+
             if (Input.GetKeyDown(KeyCode.R) && curentAmmo < clipSize && !_isFiring)
             {
                 Reload();
@@ -107,6 +125,7 @@ namespace DATA.Scripts.Weapon
                     {
                         _isFiring = true;
                         Fire();
+                        Acuracy();
                         Recoil();
                         StartCoroutine(IEDelayFire(delayBeforeFire));
                     }
@@ -114,13 +133,15 @@ namespace DATA.Scripts.Weapon
                     {
                         _isFiring = false;
                     }
+                    
                 }
-                else
+                else if(auto == Auto.Semi)
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
                         
                         Fire();
+                        Acuracy();
                         Recoil();
                         StartCoroutine(IEDelayFire(delayBeforeFire));
                     }
@@ -134,9 +155,31 @@ namespace DATA.Scripts.Weapon
 
         }
 
+        private void Acuracy()
+        {
+            
+            crossHairTop.DOBlendableMoveBy(new Vector3(0, acuracy, 0), 0.1f);
+            crossHairLeft.DOBlendableMoveBy(new Vector3(-acuracy, 0, 0), 0.1f);
+            crossHairRight.DOBlendableMoveBy(new Vector3(acuracy, 0, 0), 0.1f);
+            crossHairBottom.DOBlendableMoveBy(new Vector3(0, -acuracy, 0), 0.1f);
+            
+            // Recover
+            crossHairTop.DOBlendableMoveBy(new Vector3(0, -acuracy, 0), 0.5f);
+            crossHairLeft.DOBlendableMoveBy(new Vector3(+acuracy, 0, 0), 0.5f);
+            crossHairRight.DOBlendableMoveBy(new Vector3(-acuracy, 0, 0), 0.5f);
+            crossHairBottom.DOBlendableMoveBy(new Vector3(0, +acuracy, 0), 0.5f);
+        }
+
 
         private void Fire()
         {
+            // Muzzle Flash
+            _muzzleFlash = ObjectPooling.Instant.GetGameObject(muzzleFlashVfx);
+            _muzzleFlash.transform.position = muzzleSpot.position;
+            _muzzleFlash.transform.rotation = muzzleSpot.rotation;
+            _muzzleFlash.SetActive(true);
+            ObjectManager.Instant.StartDelayDeactive(0.12f,_muzzleFlash);
+            
             _audioSource.clip = fireSfx;
             _audioSource.Play();
             
@@ -152,7 +195,15 @@ namespace DATA.Scripts.Weapon
                     Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
                     if (Physics.Raycast(ray, out RaycastHit hit, distanceRaycast))
                     {
-                    
+                        if (LayerMask.LayerToName(hit.transform.gameObject.layer) == "Turret")
+                        {
+                            GameObject explosion = ObjectPooling.Instant.GetGameObject(explosionVfx);
+                            explosion.transform.position = hit.point;
+                            explosion.transform.rotation = Quaternion.LookRotation(hit.normal);
+                            explosion.SetActive(true);
+                            ObjectManager.Instant.StartDelayDeactive(0.1f,explosion);
+                        }
+                        
                     }
                 }
             }
@@ -160,6 +211,8 @@ namespace DATA.Scripts.Weapon
 
         private void Reload()
         {
+            _canFire = false;
+            muzzleFlashVfx.SetActive(false);
             _audioSource.clip = reloadSfx;
             _audioSource.Play();
             StartCoroutine(IEReloadAnimation());
@@ -171,7 +224,7 @@ namespace DATA.Scripts.Weapon
 
         IEnumerator IEReloadAnimation()
         {
-            canFire = false;
+            _canFire = false;
 
             var localPosition = weaponModel.transform.localPosition;
             var localRotation = weaponModel.transform.localRotation;
@@ -200,12 +253,12 @@ namespace DATA.Scripts.Weapon
             weaponModel.transform.DOBlendableRotateBy(rotation.eulerAngles, 2.5f/6f);
 
             yield return new WaitForSeconds(3f / 6f);
-            canFire = true;
+            _canFire = true;
         }
 
         private bool CanFire()
         {
-            if (canFire)
+            if (_canFire)
             {
                 if (curentAmmo > 0)
                 {
@@ -247,9 +300,10 @@ namespace DATA.Scripts.Weapon
 
         IEnumerator IEDelayFire(float time)
         {
-            canFire = false;
+            _canFire = false;
             yield return new WaitForSeconds(time);
-            canFire = true;
+            _canFire = true;
         }
+        
     }
 }

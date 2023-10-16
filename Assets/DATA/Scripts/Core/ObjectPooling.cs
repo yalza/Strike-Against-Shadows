@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DATA.Scripts.Core
 {
-    public class ObjectPooling : MonoBehaviour
+    public class ObjectPooling : Singleton<ObjectPooling>
     {
         readonly Dictionary<GameObject, List<GameObject>> _listObject = new Dictionary<GameObject, List<GameObject>>();
         public GameObject GetGameObject(GameObject obj)

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using DG.Tweening;
 
 namespace DATA.Scripts.Weapon
 {
@@ -21,6 +20,8 @@ namespace DATA.Scripts.Weapon
         {
             weapons[_currentWeapon].SetActive(true);
         }
+
+  
 
         private void Update()
         {
