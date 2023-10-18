@@ -31,8 +31,8 @@ namespace DATA.Scripts.Weapon
         #endregion 
         
         #region Fire
-        [Space]
-        [Header("Fire")]
+
+        [Space] [Header("Fire")] public float damage = 10f;
         public float delayBeforeFire = 0.1f;
         private bool _canFire = true;
         public Transform muzzleSpot;
@@ -195,13 +195,26 @@ namespace DATA.Scripts.Weapon
                     Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
                     if (Physics.Raycast(ray, out RaycastHit hit, distanceRaycast))
                     {
-                        if (LayerMask.LayerToName(hit.transform.gameObject.layer) == "Turret")
+                        if (LayerMask.LayerToName(hit.transform.gameObject.layer) == "Enemy")
                         {
                             GameObject explosion = ObjectPooling.Instant.GetGameObject(explosionVfx);
                             explosion.transform.position = hit.point;
                             explosion.transform.rotation = Quaternion.LookRotation(hit.normal);
                             explosion.SetActive(true);
                             ObjectManager.Instant.StartDelayDeactive(0.1f,explosion);
+
+                            Transform parent = hit.transform.parent;
+                            IDamageable damageable = null;
+                            while (parent != null)
+                            {
+                                damageable = parent.GetComponent<IDamageable>();
+                                parent = parent.parent;
+                            }
+                            
+                            
+                            if(damageable!= null)
+                                damageable.TakeDamage(damage);
+                            
                         }
                         
                     }

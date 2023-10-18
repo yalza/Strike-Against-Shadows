@@ -1,4 +1,5 @@
 using DATA.Scripts.EnemiesAI.Behaviour_Tree;
+using DATA.Scripts.Scriptable_Objects;
 using UnityEngine;
 
 namespace DATA.Scripts.EnemiesAI.Turrets
@@ -6,14 +7,12 @@ namespace DATA.Scripts.EnemiesAI.Turrets
     public class CheckEnemyInAttackRange : Node
     {
         private readonly Transform _transform;
-        private readonly float _attackRange;
-        private readonly LayerMask _targetLayerMask;
+        private readonly EnemyData _data;
         
-        public CheckEnemyInAttackRange(Transform transform, float attackRange,LayerMask layerMask)
+        public CheckEnemyInAttackRange(Transform transform, EnemyData data)
         {
             _transform = transform;
-            _attackRange = attackRange;
-            _targetLayerMask = layerMask;
+            _data = data;
         }
         
         public override NodeState Evaluate()
@@ -22,7 +21,7 @@ namespace DATA.Scripts.EnemiesAI.Turrets
             if (target == null)
             {
                 Collider[] colliders = new Collider[5];
-                var size = Physics.OverlapSphereNonAlloc(_transform.position, _attackRange, colliders,_targetLayerMask);
+                var size = Physics.OverlapSphereNonAlloc(_transform.position, -_data.attackRange, colliders,_data.targetLayerMask);
                 if (size > 0)
                 {
                     parent.parent.SetData("target",colliders[0].transform);
@@ -32,7 +31,7 @@ namespace DATA.Scripts.EnemiesAI.Turrets
             }
             
             Transform targetTransform = (Transform) target;
-            if(Vector3.Distance(_transform.position, targetTransform.position) <= _attackRange)
+            if(Vector3.Distance(_transform.position, targetTransform.position) <= _data.attackRange)
                 return NodeState.Success;
             return NodeState.Failure;
         }
