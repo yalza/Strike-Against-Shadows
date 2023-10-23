@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DATA.Scripts.Weapon
 {
@@ -9,6 +10,7 @@ namespace DATA.Scripts.Weapon
         public GameObject[] weapons;
         private int _currentWeapon;
         private Animator _animator;
+        public LayerMask layerMask;
         private static readonly int Switch = Animator.StringToHash("Switch");
 
         private void Awake()
@@ -29,6 +31,10 @@ namespace DATA.Scripts.Weapon
                 NextIndexWeapon();
             if(Input.GetAxis("Mouse ScrollWheel") < 0f)
                 PrevIndexWeapon();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PickUpWeapon();
+            }
         }
 
         private void NextIndexWeapon()
@@ -65,6 +71,16 @@ namespace DATA.Scripts.Weapon
             yield return new WaitForSeconds(time);
             a.SetActive(false);
             b.SetActive(true);
+        }
+        
+        private void PickUpWeapon()
+        {
+            
+            Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/ 2, Screen.height / 2));
+            if (Physics.Raycast(ray, out RaycastHit hit, 100,layerMask))
+            {
+                hit.transform.gameObject.SetActive(false);
+            }
         }
     }
     

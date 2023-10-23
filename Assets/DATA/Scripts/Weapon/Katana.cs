@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 namespace DATA.Scripts.Weapon
@@ -11,10 +12,11 @@ namespace DATA.Scripts.Weapon
         
         public float delayBeforeAtk = 1f;
         public float delayBeforeSkill = 1f;
+        public float skillRange = 50f;
         private bool _canAtk = true;
         private bool _canUseSkill = true;
 
-        [SerializeField] private Transform player;
+        [SerializeField] public Transform player;
 
         private void Awake()
         {
@@ -40,16 +42,35 @@ namespace DATA.Scripts.Weapon
                 _anim.ResetTrigger(Attack);
                 _anim.SetTrigger(Attack);
             }
-            if(Input.GetMouseButtonDown(1) && _canUseSkill)
+
+            if (Input.GetMouseButtonDown(1) && _canUseSkill)
             {
-                StartCoroutine(IEDelaySkill(delayBeforeSkill));
-                player.GetComponent<Rigidbody>().AddForce(player.forward * (300000 * Time.deltaTime),ForceMode.Impulse);
-                _audioSource[1].Play();
-                _audioSource[0].Play();
-                _anim.ResetTrigger(Attack);
-                _anim.SetTrigger(Attack);
+                UseSkill();
             }
-            
+
+        }
+
+        private void UseSkill()
+        {
+            if (Physics.Raycast(player.position, player.forward, out RaycastHit hit, skillRange))
+            {
+
+
+                player.transform.DOMove(hit.point - new Vector3(1, 0, 1), 0.25f);
+                Debug.Log(hit.transform.name);
+
+            }
+            else
+            {
+                var transform1 = player.transform;
+                player.transform.DOMove(transform1.position + transform1.forward * 50, 0.5f);
+            }
+
+            StartCoroutine(IEDelaySkill(delayBeforeSkill));
+            _audioSource[1].Play();
+            _audioSource[0].Play();
+            _anim.ResetTrigger(Attack);
+            _anim.SetTrigger(Attack);
         }
 
         IEnumerator IEDelayAttack(float time)
@@ -65,7 +86,6 @@ namespace DATA.Scripts.Weapon
             yield return new WaitForSeconds(time);
             _canUseSkill = true;
         }
-        
         
     }
 }

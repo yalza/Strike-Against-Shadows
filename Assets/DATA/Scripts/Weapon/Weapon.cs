@@ -107,10 +107,6 @@ namespace DATA.Scripts.Weapon
 
         private void Update()
         {
-            if (_muzzleFlash != null)
-            {
-                _muzzleFlash.transform.position = muzzleSpot.position;
-            }
 
             if (Input.GetKeyDown(KeyCode.R) && curentAmmo < clipSize && !_isFiring)
             {
@@ -175,10 +171,11 @@ namespace DATA.Scripts.Weapon
         {
             // Muzzle Flash
             _muzzleFlash = ObjectPooling.Instant.GetGameObject(muzzleFlashVfx);
+            _muzzleFlash.transform.SetParent(muzzleSpot);
             _muzzleFlash.transform.position = muzzleSpot.position;
             _muzzleFlash.transform.rotation = muzzleSpot.rotation;
             _muzzleFlash.SetActive(true);
-            ObjectManager.Instant.StartDelayDeactive(0.12f,_muzzleFlash);
+            ObjectManager.Instant.StartDelayDeactive(05f,_muzzleFlash);
             
             _audioSource.clip = fireSfx;
             _audioSource.Play();

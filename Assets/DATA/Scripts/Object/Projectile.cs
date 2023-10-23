@@ -9,6 +9,7 @@ namespace DATA.Scripts.Object
     {
         [SerializeField] private float speed = 10f;
         [SerializeField] private float damage = 10f;
+        [SerializeField] private GameObject impactEffect;
         
 
         private Rigidbody _rigidbody;
@@ -30,7 +31,15 @@ namespace DATA.Scripts.Object
             {
                 damageable.TakeDamage(damage);
             }
+            GameObject impact = ObjectPooling.Instant.GetGameObject(impactEffect);
+            var transform1 = transform;
+            impact.transform.position = transform1.position;
+            impact.transform.rotation = transform1.rotation;
+            impact.SetActive(true);
+            ObjectManager.Instant.StartDelayDeactive(2f,impact);
+            
             gameObject.SetActive(false);
+            
         }
     }
 }
