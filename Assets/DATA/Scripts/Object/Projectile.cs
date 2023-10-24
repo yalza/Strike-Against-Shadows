@@ -1,5 +1,6 @@
 using System;
 using DATA.Scripts.Core;
+using DATA.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.Serialization;
 

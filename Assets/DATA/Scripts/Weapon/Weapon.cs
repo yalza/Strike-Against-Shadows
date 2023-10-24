@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using DATA.Scripts.Core;
+using DATA.Scripts.Interfaces;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;

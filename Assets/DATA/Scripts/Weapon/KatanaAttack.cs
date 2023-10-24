@@ -1,5 +1,6 @@
 using System;
 using DATA.Scripts.Core;
+using DATA.Scripts.Interfaces;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;

@@ -1,4 +1,4 @@
-namespace DATA.Scripts.Core
+namespace DATA.Scripts.Interfaces
 {
     public interface IDamageable
     {

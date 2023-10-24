@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using DATA.Scripts.Core;
 using DATA.Scripts.EnemiesAI.Behaviour_Tree;
+using DATA.Scripts.EnemiesAI.Tasks;
+using DATA.Scripts.Interfaces;
 using DATA.Scripts.Scriptable_Objects;
 using UnityEngine;
 using Tree = DATA.Scripts.EnemiesAI.Behaviour_Tree.Tree;
@@ -40,7 +42,8 @@ namespace DATA.Scripts.EnemiesAI.Turrets
             {
                 new Sequence(new List<Node>
                 {
-                    new CheckEnemyInAttackRange(transform1, data),
+                    new CheckTargetInFOVRange(transform1, data),
+                    new CheckTargetInAttackRange(transform1, data),
                     new TurretTaskAttack(gun,spawnPoint,data)
                 })
             });
