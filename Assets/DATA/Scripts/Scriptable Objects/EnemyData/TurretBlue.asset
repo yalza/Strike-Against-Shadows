@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a1b73866324104c87fef1be69aa2dd, type: 3}
   m_Name: TurretBlue
   m_EditorClassIdentifier: 
+  enemyName: 
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -19,7 +20,7 @@ MonoBehaviour:
   attackRange: 100
   attackDelay: 0.1
   attackDamage: 10
-  maxHealth: 1000
+  maxHealth: 100
   projectile: {fileID: 1796749963149706, guid: d414b898c12e9b241917fe056bed92c7, type: 3}
   explosion: {fileID: 100008, guid: 06736895ea0a4ff408d25e6684dce797, type: 3}
   muzzleVfx: {fileID: 1584403288528622, guid: a7f7e53efb9c16141af1c5631e25cbb8, type: 3}

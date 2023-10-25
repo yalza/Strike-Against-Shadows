@@ -3,7 +3,7 @@ using UnityEngine;
 namespace DATA.Scripts.Scriptable_Objects
 {
     [CreateAssetMenu(fileName = "Turret Data", menuName = "ScriptableObjects/Enemy Data", order = 1)]
-    public class EnemyData : EnemiesData
+    public class TurretData : EnemiesData
     {
         [Header("Generals Settings")]
         public GameObject projectile;

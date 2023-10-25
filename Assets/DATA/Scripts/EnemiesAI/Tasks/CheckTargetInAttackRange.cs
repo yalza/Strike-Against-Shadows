@@ -7,9 +7,9 @@ namespace DATA.Scripts.EnemiesAI.Tasks
     public class CheckTargetInAttackRange : Node
     {
         private readonly Transform _transform;
-        private readonly EnemyData _data;
+        private readonly EnemiesData _data;
         
-        public CheckTargetInAttackRange(Transform transform, EnemyData data)
+        public CheckTargetInAttackRange(Transform transform, EnemiesData data)
         {
             _transform = transform;
             _data = data;

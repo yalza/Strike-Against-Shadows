@@ -12,7 +12,7 @@ namespace DATA.Scripts.EnemiesAI.Turrets
 {
     public class TurretAI : Tree,IDamageable
     {
-        [SerializeField] private EnemyData data;
+        [SerializeField] private TurretData data;
         [SerializeField] private Transform gun;
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private float health;

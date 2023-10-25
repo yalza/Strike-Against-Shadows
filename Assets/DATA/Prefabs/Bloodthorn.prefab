@@ -1608,6 +1608,7 @@ GameObject:
   - component: {fileID: 7336762993820483712}
   - component: {fileID: 2119264107229565048}
   - component: {fileID: 4900018417478512723}
+  - component: {fileID: 6018163943417417466}
   m_Layer: 0
   m_Name: Bloodthorn
   m_TagString: Untagged
@@ -1703,6 +1704,20 @@ CapsuleCollider:
   m_Height: 0.04
   m_Direction: 1
   m_Center: {x: 0, y: 0.02, z: 0}
+--- !u!114 &6018163943417417466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145768436876352298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bcba8f37d392b43af8756e30cfb909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 1a244567e75f3144c8100492785a7be3, type: 2}
+  waypoints: []
 --- !u!1 &8338845488232173193
 GameObject:
   m_ObjectHideFlags: 0

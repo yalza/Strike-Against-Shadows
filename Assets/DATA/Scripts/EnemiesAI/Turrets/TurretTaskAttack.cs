@@ -10,10 +10,10 @@ namespace DATA.Scripts.EnemiesAI.Turrets
     {
         private readonly Transform _spawnPoint;
         private readonly Transform _transformGun;
-        private readonly EnemyData _data;
+        private readonly TurretData _data;
         private float _timmer = 0;
         
-        public TurretTaskAttack(Transform transform,Transform spawnPoint, EnemyData data)
+        public TurretTaskAttack(Transform transform,Transform spawnPoint, TurretData data)
         {
             _spawnPoint = spawnPoint;
             _transformGun = transform;

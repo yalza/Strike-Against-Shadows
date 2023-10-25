@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a4e65acc9c46b3a2a2f3cb89c99051, type: 3}
   m_Name: Bloodthorn
   m_EditorClassIdentifier: 
+  enemyName: Bloodthorn
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  fovRange: 0
-  attackRange: 0
-  attackDelay: 0
-  attackDamage: 0
-  maxHealth: 0
+  fovRange: 100
+  attackRange: 10
+  attackDelay: 1
+  attackDamage: 10
+  maxHealth: 1000
+  runningAnimationName: Running
+  attack1AnimationName: Attack1
+  attack2AnimationName: Attack2
+  attack3AnimationName: Attack3
+  dieAnimationName: Die
+  moveSpeed: 40
