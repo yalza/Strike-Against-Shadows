@@ -30,21 +30,25 @@ namespace DATA.Scripts.EnemiesAI.Monsters
 
         protected override Node SetupTree()
         {
-            Node root = new Selector(new List<Node>
+            var transform1 = transform;
+            return root = new Selector(new List<Node>
             {
-                /*new Sequence(new List<Node>
+                new Sequence(new List<Node>
                 {
-                    
-                }),*/
-                new MonsterPatrol(transform,data,waypoints),
+                    new CheckTargetInAttackRange(transform1,data),
+                    new MonsterAttack(transform1,data)
+                }),
+                new Sequence(new List<Node>
+                {
+                    new CheckTargetInFOVRange(transform1,data),
+                    new GotoTarget(transform1,data),
+                }),
+                new MonsterPatrol(transform1,data,waypoints),
             });
-
-            return root;
         }
 
         public void TakeDamage(float damage)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

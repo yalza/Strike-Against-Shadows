@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Bits: 64
   fovRange: 100
   attackRange: 10
-  attackDelay: 1
+  attackDelay: 3
   attackDamage: 10
   maxHealth: 1000
   runningAnimationName: Running
@@ -26,4 +26,4 @@ MonoBehaviour:
   attack2AnimationName: Attack2
   attack3AnimationName: Attack3
   dieAnimationName: Die
-  moveSpeed: 40
+  moveSpeed: 30
