@@ -56,14 +56,14 @@ namespace DATA.Scripts.Weapon
             {
 
 
-                player.transform.DOMove(hit.point - new Vector3(1, 0, 1), 0.25f);
+                player.transform.DOMove(hit.point - new Vector3(1, 0, 1), 0.1f);
                 Debug.Log(hit.transform.name);
 
             }
             else
             {
                 var transform1 = player.transform;
-                player.transform.DOMove(transform1.position + transform1.forward * 50, 0.5f);
+                player.transform.DOMove(transform1.position + transform1.forward * skillRange, 0.2f);
             }
 
             StartCoroutine(IEDelaySkill(delayBeforeSkill));

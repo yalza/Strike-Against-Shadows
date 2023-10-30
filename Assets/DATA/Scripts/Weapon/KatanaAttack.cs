@@ -17,11 +17,15 @@ namespace DATA.Scripts.Weapon
 
         private void OnTriggerEnter(Collider other)
         {
-            IDamageable damageable = other.transform.GetComponent<IDamageable>();
-            if (damageable != null)
+            Transform parent = other.transform.parent;
+            IDamageable damageable = null;
+            while (parent != null)
             {
-                damageable.TakeDamage(damage);
+                damageable = parent.GetComponent<IDamageable>();
+                parent = parent.parent;
             }
+            if(damageable!= null)
+                damageable.TakeDamage(damage);
         }
     }
 }

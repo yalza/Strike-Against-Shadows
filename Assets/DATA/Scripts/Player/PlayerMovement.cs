@@ -100,7 +100,7 @@ namespace DATA.Scripts.Player
             if(_input.magnitude > 1)_input.Normalize();
             
             var trsf = transform;
-            Vector3 desiredMove = trsf.forward * _input.y + trsf.right * _input.x * strafeSpeed; // Tạo vector di chuyển dựa trên input
+            Vector3 desiredMove = trsf.forward * _input.y * runSpeed + trsf.right * _input.x * strafeSpeed; // Tạo vector di chuyển dựa trên input
             
             float velocY = _rigidbody.velocity.y;
             if(Grounded && jump)                                                                 // Nếu đang ở trên mặt đất và nhấn nút nhảy thì nhảy

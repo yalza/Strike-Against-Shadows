@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
-using DATA.Scripts.Core;
 using DATA.Scripts.EnemiesAI.Behaviour_Tree;
 using DATA.Scripts.EnemiesAI.Tasks;
 using DATA.Scripts.Interfaces;
-using DATA.Scripts.Player;
 using DATA.Scripts.Scriptable_Objects;
 using UnityEngine;
 using Tree = DATA.Scripts.EnemiesAI.Behaviour_Tree.Tree;
@@ -16,9 +13,19 @@ namespace DATA.Scripts.EnemiesAI.Monsters
         public MonsterData data;
         public Transform[] waypoints;
         
+        public float health;
+
+        private Animator _animator;
+        
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+        
         private void Start()
         {
             root = SetupTree();
+            health = data.maxHealth;
         }
 
         private void Update()
@@ -49,6 +56,17 @@ namespace DATA.Scripts.EnemiesAI.Monsters
 
         public void TakeDamage(float damage)
         {
+            health -= damage;
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
+        
+        private void Die()
+        {
+            _animator.SetTrigger(data.dieAnimationName);
+            Destroy(gameObject, 5f);
         }
     }
 }
