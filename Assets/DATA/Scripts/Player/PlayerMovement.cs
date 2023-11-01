@@ -22,7 +22,7 @@ namespace DATA.Scripts.Player
         private CapsuleCollider _capsule;
         private Rigidbody _rigidbody;
         private Vector2 _input;                                                 // Input từ bàn phím
-        private const float JumpRayLength = 0.7f;                               // Chiều dài của raycast để kiểm tra có thể nhảy hay không
+        private const float JumpRayLength = 1f;                               // Chiều dài của raycast để kiểm tra có thể nhảy hay không
         private IComparer _rayHitComparer;                                      // Sắp xếp các hit raycast theo thứ tự từ xa đến gần
         private bool LockCursor
         {

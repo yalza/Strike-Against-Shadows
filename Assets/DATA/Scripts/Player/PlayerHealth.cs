@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
 using DATA.Scripts.Core;
 using DATA.Scripts.Interfaces;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace DATA.Scripts.Player
 {
@@ -16,12 +13,12 @@ namespace DATA.Scripts.Player
         private void Start()
         {
             health = maxHealth;
-            Observer.Instant.NotifyObservers(Constant.updateHpSlider,new List<object>{health,maxHealth});
+            Observer.Instant.NotifyObservers(Constant.updateHpSlider,(health,maxHealth));
         }
 
         public void TakeDamage(float damage)
         {
-            Observer.Instant.NotifyObservers(Constant.updateHpSlider,new List<object>{health,maxHealth});
+            Observer.Instant.NotifyObservers(Constant.updateHpSlider,(health,maxHealth));
             health -= damage;
             if (health <= 0)
             {

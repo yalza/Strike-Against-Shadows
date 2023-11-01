@@ -19,7 +19,7 @@ MonoBehaviour:
   fovRange: 100
   attackRange: 100
   attackDelay: 0.1
-  attackDamage: 10
+  attackDamage: 1
   maxHealth: 100
   projectile: {fileID: 1796749963149706, guid: d414b898c12e9b241917fe056bed92c7, type: 3}
   explosion: {fileID: 100008, guid: 06736895ea0a4ff408d25e6684dce797, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -6,6 +7,8 @@ namespace DATA.Scripts.Weapon
 {
     public class Katana : MonoBehaviour
     {
+        public GameObject ui;
+        
         private Animator _anim;
         private AudioSource[] _audioSource;
         private static readonly int Attack = Animator.StringToHash("Attack");
@@ -30,6 +33,13 @@ namespace DATA.Scripts.Weapon
             _canUseSkill = true;
             _audioSource[0].Stop();
             _audioSource[1].Stop();
+            
+            ui.SetActive(true);
+        }
+
+        private void OnDisable()
+        {
+            ui.SetActive(false);
         }
 
         // Update is called once per frame

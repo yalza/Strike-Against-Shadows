@@ -9,7 +9,7 @@ namespace DATA.Scripts.Object
     public class Projectile : MonoBehaviour
     {
         [SerializeField] private float speed = 10f;
-        [SerializeField] private float damage = 10f;
+        [SerializeField] private float damage = 1f;
         [SerializeField] private GameObject impactEffect;
         
 

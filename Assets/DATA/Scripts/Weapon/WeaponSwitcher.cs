@@ -31,10 +31,6 @@ namespace DATA.Scripts.Weapon
                 NextIndexWeapon();
             if(Input.GetAxis("Mouse ScrollWheel") < 0f)
                 PrevIndexWeapon();
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                PickUpWeapon();
-            }
         }
 
         private void NextIndexWeapon()
@@ -70,17 +66,7 @@ namespace DATA.Scripts.Weapon
         {
             yield return new WaitForSeconds(time);
             a.SetActive(false);
-            b.SetActive(true);
-        }
-        
-        private void PickUpWeapon()
-        {
-            
-            Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/ 2, Screen.height / 2));
-            if (Physics.Raycast(ray, out RaycastHit hit, 100,layerMask))
-            {
-                hit.transform.gameObject.SetActive(false);
-            }
+            b.SetActive(true); 
         }
     }
     

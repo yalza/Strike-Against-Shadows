@@ -22,6 +22,8 @@ namespace DATA.Scripts.Weapon
 
     public class Weapon : MonoBehaviour
     {
+        public GameObject uiWeapon;
+        
         #region Generals
         [Header("Generals")]
         public WeaponType type = WeaponType.Projectile;
@@ -92,6 +94,7 @@ namespace DATA.Scripts.Weapon
             curentAmmo = clipSize;
             _originRotation = weaponModel.transform.localRotation;
             _originPosition = weaponModel.transform.localPosition;
+            
         }
         
         private void OnEnable()
@@ -99,11 +102,16 @@ namespace DATA.Scripts.Weapon
             _audioSource.Stop();
             _canFire = true;
             _isFiring = false;
+            
+            Observer.Instant.NotifyObservers(Constant.updateAmmoText,(curentAmmo,maxAmmo));
+            
+            uiWeapon.SetActive(true);
         }
 
         private void OnDisable()
         {
             StopAllCoroutines();
+            uiWeapon.SetActive(false);
         }
 
         private void Update()
@@ -218,6 +226,8 @@ namespace DATA.Scripts.Weapon
                     }
                 }
             }
+            
+            Observer.Instant.NotifyObservers(Constant.updateAmmoText,(curentAmmo,maxAmmo));
         }
 
         private void Reload()
@@ -230,7 +240,7 @@ namespace DATA.Scripts.Weapon
             if (maxAmmo < clipSize) return;
             curentAmmo = clipSize;
             maxAmmo -= clipSize;
-            
+            Observer.Instant.NotifyObservers(Constant.updateAmmoText,(curentAmmo,maxAmmo));
         }
 
         IEnumerator IEReloadAnimation()

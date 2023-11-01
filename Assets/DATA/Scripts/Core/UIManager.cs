@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -13,20 +14,42 @@ namespace DATA.Scripts.Core
         [SerializeField] private Slider hpSlider;
         [SerializeField] private TextMeshProUGUI hpText,maxHpText;
 
-        private void Start()
+        [Header("Ammo")] [SerializeField] private TextMeshProUGUI ammoText;
+        [SerializeField] private TextMeshProUGUI maxAmmoText;
+
+        private void Awake()
         {
             Observer.Instant.RegisterObserver(Constant.updateHpSlider, UpdateHpSlider);
         }
 
-        private void UpdateHpSlider(List<object> param)
+        private void Start()
         {
-            if (param.Count == 2)
+            
+            Observer.Instant.RegisterObserver(Constant.updateAmmoText, UpdateAmmoText);
+        }
+
+        private void UpdateHpSlider(object param)
+        {
+            if (param is (float, float))
             {
-                hpSlider.value = (float) param[0] / (float) param[1];
-                hpText.text = param[0].ToString();
-                maxHpText.text = param[1].ToString();
+                var (health, maxHealth) = ((float, float)) param;
+                hpSlider.value = health / maxHealth ;
+                
+                hpText.text = health.ToString(CultureInfo.InvariantCulture);
+                maxHpText.text = maxHealth.ToString(CultureInfo.InvariantCulture);
             }
         }
+        
+        private void UpdateAmmoText(object param)
+        {
+            if (param is (int, int))
+            {
+                var (ammo, maxAmmo) = ((int, int)) param;
+                ammoText.text = ammo.ToString();
+                maxAmmoText.text = maxAmmo.ToString();
+            }
+        }
+        
         
     }
 }
