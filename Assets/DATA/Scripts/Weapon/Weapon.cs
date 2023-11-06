@@ -48,19 +48,6 @@ namespace DATA.Scripts.Weapon
         [Space]
         #endregion
         
-        #region Accuracy
-        [Space]
-        [Header("Acuracy")]
-        public float acuracy = 5f;
-        public RectTransform crossHairTop;
-        public RectTransform crossHairLeft;
-        public RectTransform crossHairRight;
-        public RectTransform crossHairBottom;
-        
-        [Space]
-        #endregion
-        
-
         #region Ammo
         [Space]
         [Header("Ammo")]
@@ -130,7 +117,7 @@ namespace DATA.Scripts.Weapon
                     {
                         _isFiring = true;
                         Fire();
-                        Acuracy();
+                        Observer.Instant.NotifyObservers(Constant.acuracyCrosshair);
                         Recoil();
                         StartCoroutine(IEDelayFire(delayBeforeFire));
                     }
@@ -146,7 +133,7 @@ namespace DATA.Scripts.Weapon
                     {
                         
                         Fire();
-                        Acuracy();
+                        Observer.Instant.NotifyObservers(Constant.acuracyCrosshair);
                         Recoil();
                         StartCoroutine(IEDelayFire(delayBeforeFire));
                     }
@@ -160,20 +147,7 @@ namespace DATA.Scripts.Weapon
 
         }
 
-        private void Acuracy()
-        {
-            
-            crossHairTop.DOBlendableMoveBy(new Vector3(0, acuracy, 0), 0.1f);
-            crossHairLeft.DOBlendableMoveBy(new Vector3(-acuracy, 0, 0), 0.1f);
-            crossHairRight.DOBlendableMoveBy(new Vector3(acuracy, 0, 0), 0.1f);
-            crossHairBottom.DOBlendableMoveBy(new Vector3(0, -acuracy, 0), 0.1f);
-            
-            // Recover
-            crossHairTop.DOBlendableMoveBy(new Vector3(0, -acuracy, 0), 0.5f);
-            crossHairLeft.DOBlendableMoveBy(new Vector3(+acuracy, 0, 0), 0.5f);
-            crossHairRight.DOBlendableMoveBy(new Vector3(-acuracy, 0, 0), 0.5f);
-            crossHairBottom.DOBlendableMoveBy(new Vector3(0, +acuracy, 0), 0.5f);
-        }
+        
 
 
         private void Fire()
@@ -308,8 +282,6 @@ namespace DATA.Scripts.Weapon
             // Apply the random values to the weapon's postion and rotation
             weaponModel.transform.Translate(new Vector3(0, 0, -kickBack), Space.Self);
             weaponModel.transform.Rotate(new Vector3(-kickRot, 0, 0), Space.Self);
-            
-            
         }
 
         private void Recover()

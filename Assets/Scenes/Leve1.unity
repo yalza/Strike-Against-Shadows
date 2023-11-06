@@ -1615,11 +1615,6 @@ MonoBehaviour:
     type: 3}
   fireSfx: {fileID: 8300000, guid: 456b075f676527e40a869db49e6945ff, type: 3}
   distanceRaycast: 1000
-  acuracy: 10
-  crossHairTop: {fileID: 43125927}
-  crossHairLeft: {fileID: 162182811}
-  crossHairRight: {fileID: 109647345}
-  crossHairBottom: {fileID: 315532928}
   autoReload: 0
   clipSize: 1
   curentAmmo: 120
@@ -1999,6 +1994,7 @@ GameObject:
   - component: {fileID: 615026741}
   - component: {fileID: 615026740}
   - component: {fileID: 615026739}
+  - component: {fileID: 615026742}
   m_Layer: 0
   m_Name: CrossHair
   m_TagString: Untagged
@@ -2093,6 +2089,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &615026742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615026737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5ea7b6f18846be8df63f2746b40fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acuracy: 5
+  crossHairTop: {fileID: 43125927}
+  crossHairLeft: {fileID: 162182811}
+  crossHairRight: {fileID: 109647345}
+  crossHairBottom: {fileID: 315532928}
 --- !u!1 &649375596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,11 +2786,6 @@ MonoBehaviour:
     type: 3}
   fireSfx: {fileID: 8300000, guid: f8271d1b8fbba724582b5c416357aa0c, type: 3}
   distanceRaycast: 1000
-  acuracy: 10
-  crossHairTop: {fileID: 43125927}
-  crossHairLeft: {fileID: 162182811}
-  crossHairRight: {fileID: 109647345}
-  crossHairBottom: {fileID: 315532928}
   autoReload: 1
   clipSize: 15
   curentAmmo: 120
@@ -3443,11 +3451,6 @@ MonoBehaviour:
     type: 3}
   fireSfx: {fileID: 8300000, guid: a50ebf04a94195b4abb82d9d0cadf895, type: 3}
   distanceRaycast: 1000
-  acuracy: 20
-  crossHairTop: {fileID: 43125927}
-  crossHairLeft: {fileID: 162182811}
-  crossHairRight: {fileID: 109647345}
-  crossHairBottom: {fileID: 315532928}
   autoReload: 1
   clipSize: 4
   curentAmmo: 120
@@ -3619,11 +3622,6 @@ MonoBehaviour:
     type: 3}
   fireSfx: {fileID: 8300000, guid: 0a50c7665ebe7de4f86f24fa0ae29d33, type: 3}
   distanceRaycast: 1000
-  acuracy: 10
-  crossHairTop: {fileID: 43125927}
-  crossHairLeft: {fileID: 162182811}
-  crossHairRight: {fileID: 109647345}
-  crossHairBottom: {fileID: 315532928}
   autoReload: 1
   clipSize: 30
   curentAmmo: 30
@@ -5176,11 +5174,6 @@ MonoBehaviour:
     type: 3}
   fireSfx: {fileID: 8300000, guid: 45e1b83888a82f642ba860acd36fc773, type: 3}
   distanceRaycast: 1000
-  acuracy: 10
-  crossHairTop: {fileID: 43125927}
-  crossHairLeft: {fileID: 162182811}
-  crossHairRight: {fileID: 109647345}
-  crossHairBottom: {fileID: 315532928}
   autoReload: 1
   clipSize: 30
   curentAmmo: 30
@@ -5516,11 +5509,6 @@ MonoBehaviour:
     type: 3}
   fireSfx: {fileID: 8300000, guid: bd7f5cb495bba7d41bc726e254c66d1e, type: 3}
   distanceRaycast: 1000
-  acuracy: 10
-  crossHairTop: {fileID: 43125927}
-  crossHairLeft: {fileID: 162182811}
-  crossHairRight: {fileID: 109647345}
-  crossHairBottom: {fileID: 315532928}
   autoReload: 1
   clipSize: 40
   curentAmmo: 120
@@ -18019,6 +18007,31 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2496528954494499089, guid: 5cd7b4a2e2edeca4890490c3f4a7ec7a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496528954494499089, guid: 5cd7b4a2e2edeca4890490c3f4a7ec7a,
+        type: 3}
+      propertyPath: crossHairTop
+      value: 
+      objectReference: {fileID: 43125927}
+    - target: {fileID: 2496528954494499089, guid: 5cd7b4a2e2edeca4890490c3f4a7ec7a,
+        type: 3}
+      propertyPath: crossHairLeft
+      value: 
+      objectReference: {fileID: 162182811}
+    - target: {fileID: 2496528954494499089, guid: 5cd7b4a2e2edeca4890490c3f4a7ec7a,
+        type: 3}
+      propertyPath: crossHairRight
+      value: 
+      objectReference: {fileID: 109647345}
+    - target: {fileID: 2496528954494499089, guid: 5cd7b4a2e2edeca4890490c3f4a7ec7a,
+        type: 3}
+      propertyPath: crossHairBottom
+      value: 
+      objectReference: {fileID: 315532928}
     - target: {fileID: 2881179623573108140, guid: 5cd7b4a2e2edeca4890490c3f4a7ec7a,
         type: 3}
       propertyPath: m_Layer
