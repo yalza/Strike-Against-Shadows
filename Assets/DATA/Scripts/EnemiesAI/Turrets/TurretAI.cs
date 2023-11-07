@@ -62,12 +62,8 @@ namespace DATA.Scripts.EnemiesAI.Turrets
 
         private void Die()
         {
-            
-            GameObject vfx = ObjectPooling.Instant.GetGameObject(data.explosion);
-            vfx.transform.position = transform.position;
-            vfx.SetActive(true);
-            ObjectManager.Instant.StartDelayDeactive(0.5f,gameObject);
-            ObjectManager.Instant.StartDelayDeactive(5f, vfx);
+            Destroy(gameObject,0.5f);
+            Instantiate(data.explosion, transform.position, Quaternion.identity);
         }
     }
 }
