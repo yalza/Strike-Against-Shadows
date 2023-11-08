@@ -54,7 +54,6 @@ namespace DATA.Scripts.Player
         
         Vector3 _prevPosition;                                                                                        // Vị trí trước đó của người chơi
         Vector3 _prevVelocity = Vector3.zero;                                                                      // Vận tốc trước đó của người chơi
-        private bool _prevGrounded = true;                                                                            // Trạng thái trước đó của người chơi có đang đứng trên mặt đất hay không
 
         private void Awake()
         {

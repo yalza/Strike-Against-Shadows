@@ -21,13 +21,10 @@ namespace DATA.Scripts.EnemiesAI.Drone
             object target = GetData("target");
             Transform targetTransform = (Transform)target;
             var position = targetTransform.position;
-            var position1 = _transform.position;
-            Vector3 targetPosition = new Vector3(position.x, position1.y, position.z);
-            if(Vector3.Distance(_transform.position, targetPosition) > 0.01f)
+            if(Vector3.Distance(_transform.position, position) > 0.01f)
             {
-                _transform.LookAt(targetPosition);
-                position1 = Vector3.MoveTowards(position1, targetPosition, _shootingEnemyData.moveSpeed * Time.deltaTime);
-                _transform.position = position1;
+                _transform.LookAt(position);
+                _transform.position = Vector3.MoveTowards(_transform.position, position, _shootingEnemyData.moveSpeed * Time.deltaTime);
             }
             return NodeState.Running;
         }

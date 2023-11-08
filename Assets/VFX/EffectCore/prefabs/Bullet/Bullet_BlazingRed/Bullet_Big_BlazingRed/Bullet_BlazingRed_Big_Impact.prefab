@@ -33499,6 +33499,7 @@ GameObject:
   - component: {fileID: 4541196389373984}
   - component: {fileID: 199662529975144968}
   - component: {fileID: 198936614657003924}
+  - component: {fileID: -3086321319781183805}
   m_Layer: 0
   m_Name: Bullet_BlazingRed_Big_Impact
   m_TagString: Untagged
@@ -38336,6 +38337,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &-3086321319781183805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879272669879180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1035aef449384e439729d213c914f747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 1
 --- !u!1 &1947723841646622
 GameObject:
   m_ObjectHideFlags: 0

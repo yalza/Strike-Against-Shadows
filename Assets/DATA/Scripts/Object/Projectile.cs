@@ -37,7 +37,6 @@ namespace DATA.Scripts.Object
             impact.transform.position = transform1.position;
             impact.transform.rotation = transform1.rotation;
             impact.SetActive(true);
-            ObjectManager.Instant.StartDelayDeactive(2f,impact);
             
             gameObject.SetActive(false);
             

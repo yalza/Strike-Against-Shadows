@@ -19484,6 +19484,79 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &5919035203029551764
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 42.020576
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 42.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -94.50555
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660359669990275135, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723145544306380259, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_Name
+      value: Raven Seeker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723145544306380259, guid: d98f08c2120819c468b176a1241c365e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d98f08c2120819c468b176a1241c365e, type: 3}
 --- !u!222 &6427306554820458296
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19751,6 +19824,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost Recon Drone
       objectReference: {fileID: 0}
+    - target: {fileID: 1645553805380862978, guid: 586d2f56df035ef498145ea6f1b950e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422686199992265584, guid: 586d2f56df035ef498145ea6f1b950e7,
+        type: 3}
+      propertyPath: rotateTransform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8106752079859161702, guid: 586d2f56df035ef498145ea6f1b950e7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19759,7 +19842,7 @@ PrefabInstance:
     - target: {fileID: 8106752079859161702, guid: 586d2f56df035ef498145ea6f1b950e7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 166.5
+      value: 70.87
       objectReference: {fileID: 0}
     - target: {fileID: 8106752079859161702, guid: 586d2f56df035ef498145ea6f1b950e7,
         type: 3}
@@ -19904,8 +19987,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1485170033}
-  - {fileID: 1562485646}
-  - {fileID: 3927160672984394107}
   - {fileID: 423930066}
   - {fileID: 2060743795}
   - {fileID: 1387423320}
@@ -19914,7 +19995,6 @@ SceneRoots:
   - {fileID: 962695638}
   - {fileID: 2137565747}
   - {fileID: 1588076361}
-  - {fileID: 5059601453818386467}
   - {fileID: 958172708}
   - {fileID: 1664333607}
   - {fileID: 1357080415}
@@ -19922,3 +20002,7 @@ SceneRoots:
   - {fileID: 420132696}
   - {fileID: 6816546748115538756}
   - {fileID: 7140432964622189682}
+  - {fileID: 5919035203029551764}
+  - {fileID: 5059601453818386467}
+  - {fileID: 1562485646}
+  - {fileID: 3927160672984394107}

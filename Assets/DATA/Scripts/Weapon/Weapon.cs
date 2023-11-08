@@ -159,7 +159,6 @@ namespace DATA.Scripts.Weapon
             _muzzleFlash.transform.position = muzzleSpot.position;
             _muzzleFlash.transform.rotation = muzzleSpot.rotation;
             _muzzleFlash.SetActive(true);
-            ObjectManager.Instant.StartDelayDeactive(05f,_muzzleFlash);
             
             _audioSource.clip = fireSfx;
             _audioSource.Play();
@@ -182,17 +181,9 @@ namespace DATA.Scripts.Weapon
                             explosion.transform.position = hit.point;
                             explosion.transform.rotation = Quaternion.LookRotation(hit.normal);
                             explosion.SetActive(true);
-                            ObjectManager.Instant.StartDelayDeactive(0.1f,explosion);
 
                             Transform parent = hit.transform.parent;
-                            IDamageable damageable = hit.transform.GetComponent<IDamageable>();
-                            while (parent != null)
-                            {
-                                damageable = parent.GetComponent<IDamageable>();
-                                parent = parent.parent;
-                            }
-                            
-                            
+                            IDamageable damageable = hit.transform.GetComponentInParent<IDamageable>();
                             if(damageable!= null)
                                 damageable.TakeDamage(damage);
                             

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DATA.Scripts.Core;
 using DATA.Scripts.EnemiesAI.Behaviour_Tree;
 using DATA.Scripts.Scriptable_Objects;
@@ -34,24 +35,38 @@ namespace DATA.Scripts.EnemiesAI.Tasks
 
         private void Attack()
         {
-            Transform target = (Transform) GetData("target");
+            Transform target = (Transform)GetData("target");
             var position1 = target.position;
             _transformGun.LookAt(position1 - Vector3.up);
 
-            var position = _spawnPoint.position;
-            var rotation = _spawnPoint.rotation;
-            Spawn(_data.projectile,position,rotation,2f);
-            Spawn(_data.muzzleVfx,position,rotation,0.5f);
-            
-        }
+            var muzzles = _spawnPoint.GetComponentsInChildren<Transform>();
 
-        private void Spawn(GameObject obj, Vector3 position, Quaternion rotation,float lifeTime)
+            if (muzzles.Length == 1)
+            {
+
+                var position = _spawnPoint.position;
+                var rotation = _spawnPoint.rotation;
+                Spawn(_data.projectile, position, rotation);
+                Spawn(_data.muzzleVfx, position, rotation);
+            }
+            else
+            {
+                for (int i = 1; i < muzzles.Length; i++)
+                {
+                    var position = muzzles[i].position;
+                    var rotation = muzzles[i].rotation;
+                    Spawn(_data.projectile, position, rotation);
+                    Spawn(_data.muzzleVfx, position, rotation);
+                }
+            }
+    }
+
+        private void Spawn(GameObject obj, Vector3 position, Quaternion rotation)
         {
             GameObject tmpGameObject = ObjectPooling.Instant.GetGameObject(obj);
             tmpGameObject.transform.position = position;
             tmpGameObject.transform.rotation = rotation;
             tmpGameObject.SetActive(true);
-            ObjectManager.Instant.StartDelayDeactive(lifeTime,tmpGameObject);
         }
         
     }

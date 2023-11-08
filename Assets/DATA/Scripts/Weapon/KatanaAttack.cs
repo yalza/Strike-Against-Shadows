@@ -18,12 +18,7 @@ namespace DATA.Scripts.Weapon
         private void OnTriggerEnter(Collider other)
         {
             Transform parent = other.transform.parent;
-            IDamageable damageable = null;
-            while (parent != null)
-            {
-                damageable = parent.GetComponent<IDamageable>();
-                parent = parent.parent;
-            }
+            IDamageable damageable = GetComponentInParent<IDamageable>();
             if(damageable!= null)
                 damageable.TakeDamage(damage);
         }
