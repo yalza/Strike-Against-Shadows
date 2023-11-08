@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace DATA.Scripts.Scriptable_Objects
 {
@@ -15,5 +14,6 @@ namespace DATA.Scripts.Scriptable_Objects
         public float attackDelay;
         public float attackDamage;
         public float maxHealth;
+        public float moveSpeed;
     }
 }

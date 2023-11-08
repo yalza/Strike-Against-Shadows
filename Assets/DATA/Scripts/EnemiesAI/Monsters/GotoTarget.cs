@@ -8,13 +8,13 @@ namespace DATA.Scripts.EnemiesAI.Monsters
     {
         private readonly Transform _transform;
         private readonly Animator _animator;
-        private readonly MonsterData _data;
+        private readonly MeleeAttackEnemyData _data;
 
-        public GotoTarget(Transform transform, MonsterData monsterData)
+        public GotoTarget(Transform transform, MeleeAttackEnemyData meleeAttackEnemyData)
         {
             _transform = transform;
             _animator = transform.GetComponent<Animator>();
-            _data = monsterData;
+            _data = meleeAttackEnemyData;
         }
 
         public override NodeState Evaluate()
@@ -33,7 +33,6 @@ namespace DATA.Scripts.EnemiesAI.Monsters
                 _animator.ResetTrigger(_data.attack2AnimationName);
                 _animator.ResetTrigger(_data.attack3AnimationName);*/
                 _animator.SetBool(_data.runningAnimationName, true);
-                Debug.Log(1);
             }
             return NodeState.Running;
         }

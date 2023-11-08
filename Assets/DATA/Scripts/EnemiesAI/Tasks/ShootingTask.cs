@@ -1,19 +1,18 @@
-using System.Collections;
 using DATA.Scripts.Core;
 using DATA.Scripts.EnemiesAI.Behaviour_Tree;
 using DATA.Scripts.Scriptable_Objects;
 using UnityEngine;
 
-namespace DATA.Scripts.EnemiesAI.Turrets
+namespace DATA.Scripts.EnemiesAI.Tasks
 {
-    public class TurretTaskAttack : Node
+    public class ShootingTask : Node
     {
         private readonly Transform _spawnPoint;
         private readonly Transform _transformGun;
-        private readonly TurretData _data;
+        private readonly ShootingEnemyData _data;
         private float _timmer = 0;
         
-        public TurretTaskAttack(Transform transform,Transform spawnPoint, TurretData data)
+        public ShootingTask(Transform transform,Transform spawnPoint, ShootingEnemyData data)
         {
             _spawnPoint = spawnPoint;
             _transformGun = transform;
@@ -36,7 +35,8 @@ namespace DATA.Scripts.EnemiesAI.Turrets
         private void Attack()
         {
             Transform target = (Transform) GetData("target");
-            _transformGun.LookAt(target.position);
+            var position1 = target.position;
+            _transformGun.LookAt(new Vector3(position1.x,_transformGun.position.y,position1.z));
 
             var position = _spawnPoint.position;
             var rotation = _spawnPoint.rotation;

@@ -97,8 +97,9 @@ namespace DATA.Scripts.Weapon
 
         private void OnDisable()
         {
-            StopAllCoroutines();
             uiWeapon.SetActive(false);
+            StopAllCoroutines();
+            
         }
 
         private void Update()
@@ -184,7 +185,7 @@ namespace DATA.Scripts.Weapon
                             ObjectManager.Instant.StartDelayDeactive(0.1f,explosion);
 
                             Transform parent = hit.transform.parent;
-                            IDamageable damageable = null;
+                            IDamageable damageable = hit.transform.GetComponent<IDamageable>();
                             while (parent != null)
                             {
                                 damageable = parent.GetComponent<IDamageable>();

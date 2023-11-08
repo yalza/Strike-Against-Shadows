@@ -84,25 +84,24 @@ namespace DATA.Scripts.Player
                 float x = _originalPosition.x + Mathf.Sin(time) * shakeDistanceX;
                 float y = _originalPosition.y + Mathf.Sin(time) * shakeDistanceY;
                 float z = _originalPosition.z + Mathf.Sin(time) * shakeDistanceZ;
-                
+
                 float xRot = _originalRotation.x + Mathf.Sin(time) * shakeRotationX;
                 float yRot = _originalRotation.y + Mathf.Sin(time) * shakeRotationY;
                 float zRot = _originalRotation.z + Mathf.Sin(time) * shakeRotationZ;
-                transform1.position = new Vector3(x,y,z);
+                transform1.position = new Vector3(x, y, z);
                 transform.localRotation = new Quaternion(xRot, yRot, zRot, 1);
 
-                if (time > Mathf.PI * 2)
-                {
-                    hitTime = Time.time;
-                    shakeDistanceX *= _actualDereaseMultiplier;
-                    shakeDistanceY *= _actualDereaseMultiplier;
-                    shakeDistanceZ *= _actualDereaseMultiplier;
-                    shakeRotationX *= _actualDereaseMultiplier;
-                    shakeRotationY *= _actualDereaseMultiplier;
-                    shakeRotationZ *= _actualDereaseMultiplier;
-                    
-                    shake--;
-                }
+
+                hitTime = Time.time;
+                shakeDistanceX *= _actualDereaseMultiplier;
+                shakeDistanceY *= _actualDereaseMultiplier;
+                shakeDistanceZ *= _actualDereaseMultiplier;
+                shakeRotationX *= _actualDereaseMultiplier;
+                shakeRotationY *= _actualDereaseMultiplier;
+                shakeRotationZ *= _actualDereaseMultiplier;
+
+                shake--;
+
 
                 yield return true;
             }

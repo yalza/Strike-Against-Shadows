@@ -10,7 +10,7 @@ namespace DATA.Scripts.EnemiesAI.Monsters
 {
     public class MonsterAI : Tree,IDamageable
     {
-        public MonsterData data;
+        public MeleeAttackEnemyData data;
         public Transform[] waypoints;
         
         public float health;

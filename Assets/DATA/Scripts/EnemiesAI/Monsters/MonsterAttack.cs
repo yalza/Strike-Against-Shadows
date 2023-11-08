@@ -8,11 +8,11 @@ namespace DATA.Scripts.EnemiesAI.Monsters
     {
         private readonly Transform _transform;
         private readonly Animator _animator;
-        private readonly MonsterData _data;
+        private readonly MeleeAttackEnemyData _data;
         
         private float _attackTimer;
         
-        public MonsterAttack(Transform transform , MonsterData data)
+        public MonsterAttack(Transform transform , MeleeAttackEnemyData data)
         {
             _transform = transform;
             _animator = transform.GetComponent<Animator>();

@@ -1,20 +1,24 @@
 using System;
+using System.Collections.Generic;
 using DATA.Scripts.EnemiesAI.Behaviour_Tree;
+using DATA.Scripts.EnemiesAI.Tasks;
 using DATA.Scripts.Interfaces;
 using DATA.Scripts.Scriptable_Objects;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Tree = DATA.Scripts.EnemiesAI.Behaviour_Tree.Tree;
 
 namespace DATA.Scripts.EnemiesAI.Drone
 {
     public class DroneAI : Tree , IDamageable
     {
-        public DroneData droneData;
+        [SerializeField] private ShootingEnemyData shootingEnemyData;
+        [SerializeField] private Transform muzzle;
         public float health;
         private void Start()
         {
             root = SetupTree();
-            health = droneData.maxHealth;
+            health = shootingEnemyData.maxHealth;
         }
 
         private void Update()
@@ -27,12 +31,35 @@ namespace DATA.Scripts.EnemiesAI.Drone
 
         protected override Node SetupTree()
         {
-            throw new System.NotImplementedException();
+            var transform1 = transform;
+            return root = new Selector(new List<Node>
+            {
+                new Sequence(new List<Node>
+                {
+                    new CheckTargetInAttackRange(transform1,shootingEnemyData),
+                    new ShootingTask(transform1,muzzle,shootingEnemyData)
+                }),
+                new Sequence(new List<Node>
+                {
+                    new CheckTargetInFOVRange(transform1,shootingEnemyData),
+                    
+                })
+            });
         }
 
         public void TakeDamage(float damage)
         {
-            throw new System.NotImplementedException();
+            health -= damage;
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
+        
+        private void Die()
+        {
+            Destroy(gameObject,0.5f);
+            Instantiate(shootingEnemyData.explosion, transform.position + Vector3.down * 2, Quaternion.identity);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace DATA.Scripts.EnemiesAI.Monsters
         private readonly Transform[] _waypoints;
         private readonly Transform _transform;
         private readonly Animator _animator;
-        private readonly MonsterData _data;
+        private readonly MeleeAttackEnemyData _data;
         
         private int _currentWaypointIndex;
         private float _waitTime = 1f;
@@ -16,7 +16,7 @@ namespace DATA.Scripts.EnemiesAI.Monsters
         private bool _isWaiting;
         
 
-        public MonsterPatrol(Transform transform,MonsterData data, Transform[] waypoints)
+        public MonsterPatrol(Transform transform,MeleeAttackEnemyData data, Transform[] waypoints)
         {
             _transform = transform;
             _animator = transform.GetComponent<Animator>();

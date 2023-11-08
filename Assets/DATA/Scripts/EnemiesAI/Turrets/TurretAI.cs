@@ -12,15 +12,11 @@ namespace DATA.Scripts.EnemiesAI.Turrets
 {
     public class TurretAI : Tree,IDamageable
     {
-        [SerializeField] private TurretData data;
+        [SerializeField] private ShootingEnemyData data;
         [SerializeField] private Transform gun;
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private float health;
-
-        private void Awake()
-        {
-        }
-
+        
         private void Start()
         {
             health = data.maxHealth;
@@ -38,16 +34,15 @@ namespace DATA.Scripts.EnemiesAI.Turrets
         protected override Node SetupTree()
         {
             var transform1 = transform;
-            var root = new Selector(new List<Node>
+            return root = new Selector(new List<Node>
             {
                 new Sequence(new List<Node>
                 {
                     new CheckTargetInFOVRange(transform1, data),
                     new CheckTargetInAttackRange(transform1, data),
-                    new TurretTaskAttack(gun,spawnPoint,data)
+                    new ShootingTask(gun,spawnPoint,data)
                 })
             });
-            return root;
         }
 
 

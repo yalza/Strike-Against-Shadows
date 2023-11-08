@@ -3119,7 +3119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 10
-  strafeSpeed: 2
+  strafeSpeed: 5
   jumpForce: 10
   advancedSettings:
     gravityMultiplier: 1
@@ -5090,7 +5090,7 @@ PrefabInstance:
     - target: {fileID: 8145768436876352298, guid: f6b5a62cd3212594fa4fbb40c51bec9b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8807237039113074811, guid: f6b5a62cd3212594fa4fbb40c51bec9b,
         type: 3}
@@ -17026,12 +17026,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibrateOnAwake: 0
-  startingShakeDistance: {x: 0, y: 0, z: 0}
-  startingRotationAmount: {x: 0, y: 0, z: 0, w: 0}
   shakeSpeed: 60
-  decreaseMultiplier: 0.5
+  dereaseMultiplier: 0.9
   numberOfShakes: 8
-  shakeContinuous: 0
 --- !u!4 &1847122092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8509983736920933053, guid: 77c5cd10df85b0e40a5d0e35c71e2006,
@@ -19048,6 +19045,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: turret
       objectReference: {fileID: 0}
+    - target: {fileID: 9173814638934595002, guid: d7f639ff58a662d4492a00b798498c55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19257,6 +19259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mutant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691524168588975975, guid: ab4fc0ff63e510b4fabad9329ae03a2b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6309900835095201276, guid: ab4fc0ff63e510b4fabad9329ae03a2b,
         type: 3}
@@ -19651,6 +19658,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3826134099499342800, guid: 8b26632ac3aa5c444b3b0124b78db8ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826134099499342800, guid: 8b26632ac3aa5c444b3b0124b78db8ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3987723184479573958, guid: 8b26632ac3aa5c444b3b0124b78db8ec,
         type: 3}
       propertyPath: m_LocalPosition.x
