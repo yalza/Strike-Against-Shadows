@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 namespace DATA.Scripts.Scriptable_Objects
 {
-    [CreateAssetMenu(fileName = "Monster Data", menuName = "ScriptableObjects/Monster Data", order = 2)]
+    [CreateAssetMenu(fileName = "MeleeAttackEnemyData Data", menuName = "ScriptableObjects/MeleeAttackEnemyData Data", order = 2)]
     public class MeleeAttackEnemyData : EnemiesData
     {
         

@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62a1b73866324104c87fef1be69aa2dd, type: 3}
-  m_Name: Rover
+  m_Name: Ghost Recon Drone
   m_EditorClassIdentifier: 
-  enemyName: Rover
+  enemyName: Ghost Recon Drone
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  fovRange: 100
-  attackRange: 50
+  fovRange: 1000
+  attackRange: 500
   attackDelay: 0.1
   attackDamage: 1
   maxHealth: 100
   moveSpeed: 30
-  projectile: {fileID: 1796749963149706, guid: 7d9628d8dd1c41e40a689cba91859604, type: 3}
+  projectile: {fileID: 1796749963149706, guid: 0d5375de13c0d07418db45e642648e1b, type: 3}
   explosion: {fileID: 100008, guid: 06736895ea0a4ff408d25e6684dce797, type: 3}
-  muzzleVfx: {fileID: 1584403288528622, guid: f54bb1ec5b694b74ba4f1ff9c5556eee, type: 3}
+  muzzleVfx: {fileID: 1584403288528622, guid: 722795f4bd4886a438dbd4c6ff443394, type: 3}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace DATA.Scripts.Scriptable_Objects
 {
-    [CreateAssetMenu(fileName = "Turret Data", menuName = "ScriptableObjects/Enemy Data", order = 1)]
+    [CreateAssetMenu(fileName = "ShootingEnemyData Data", menuName = "ScriptableObjects/ShootingEnemyData Data", order = 1)]
     public class ShootingEnemyData : EnemiesData
     {
         [Header("Generals Settings")]

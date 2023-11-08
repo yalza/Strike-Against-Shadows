@@ -36,7 +36,7 @@ namespace DATA.Scripts.EnemiesAI.Tasks
         {
             Transform target = (Transform) GetData("target");
             var position1 = target.position;
-            _transformGun.LookAt(new Vector3(position1.x,_transformGun.position.y,position1.z));
+            _transformGun.LookAt(position1 - Vector3.up);
 
             var position = _spawnPoint.position;
             var rotation = _spawnPoint.rotation;
