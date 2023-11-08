@@ -25,8 +25,6 @@ namespace DATA.Scripts.EnemiesAI.Drone
         {
             if(root!=null)
                 root.Evaluate();
-            
-            
         }
 
         protected override Node SetupTree()
@@ -42,7 +40,7 @@ namespace DATA.Scripts.EnemiesAI.Drone
                 new Sequence(new List<Node>
                 {
                     new CheckTargetInFOVRange(transform1,shootingEnemyData),
-                    
+                    new DroneGotoTarget(transform1,shootingEnemyData)
                 })
             });
         }

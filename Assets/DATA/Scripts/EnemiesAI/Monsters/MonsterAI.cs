@@ -48,7 +48,7 @@ namespace DATA.Scripts.EnemiesAI.Monsters
                 new Sequence(new List<Node>
                 {
                     new CheckTargetInFOVRange(transform1,data),
-                    new GotoTarget(transform1,data),
+                    new MonsterGotoTarget(transform1,data),
                 }),
                 new MonsterPatrol(transform1,data,waypoints),
             });

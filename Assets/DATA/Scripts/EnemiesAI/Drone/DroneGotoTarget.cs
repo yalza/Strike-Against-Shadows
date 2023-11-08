@@ -1,22 +1,21 @@
 using DATA.Scripts.EnemiesAI.Behaviour_Tree;
 using DATA.Scripts.Scriptable_Objects;
 using UnityEngine;
+using Node = DATA.Scripts.EnemiesAI.Behaviour_Tree.Node;
 
-namespace DATA.Scripts.EnemiesAI.Monsters
+namespace DATA.Scripts.EnemiesAI.Drone
 {
-    public class GotoTarget : Node
+    public class DroneGotoTarget : Node
     {
         private readonly Transform _transform;
-        private readonly Animator _animator;
-        private readonly MeleeAttackEnemyData _data;
+        private readonly ShootingEnemyData _shootingEnemyData;
 
-        public GotoTarget(Transform transform, MeleeAttackEnemyData meleeAttackEnemyData)
+        public DroneGotoTarget(Transform transform, ShootingEnemyData shootingEnemyData)
         {
             _transform = transform;
-            _animator = transform.GetComponent<Animator>();
-            _data = meleeAttackEnemyData;
+            _shootingEnemyData = shootingEnemyData;
         }
-
+        
         public override NodeState Evaluate()
         {
             object target = GetData("target");
@@ -27,14 +26,11 @@ namespace DATA.Scripts.EnemiesAI.Monsters
             if(Vector3.Distance(_transform.position, targetPosition) > 0.01f)
             {
                 _transform.LookAt(targetPosition);
-                position1 = Vector3.MoveTowards(position1, targetPosition, _data.moveSpeed * Time.deltaTime);
+                position1 = Vector3.MoveTowards(position1, targetPosition, _shootingEnemyData.moveSpeed * Time.deltaTime);
                 _transform.position = position1;
-                /*_animator.ResetTrigger(_data.attack1AnimationName);
-                _animator.ResetTrigger(_data.attack2AnimationName);
-                _animator.ResetTrigger(_data.attack3AnimationName);*/
-                _animator.SetBool(_data.runningAnimationName, true);
             }
             return NodeState.Running;
         }
+        
     }
 }
