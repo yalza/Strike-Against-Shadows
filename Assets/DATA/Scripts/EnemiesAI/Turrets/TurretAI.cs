@@ -55,7 +55,7 @@ namespace DATA.Scripts.EnemiesAI.Turrets
             }
         }
 
-        private void Die()
+        public void Die()
         {
             Destroy(gameObject,0.5f);
             Instantiate(data.explosion, transform.position, Quaternion.identity);

@@ -54,7 +54,7 @@ namespace DATA.Scripts.EnemiesAI.Drone
             }
         }
         
-        private void Die()
+        public void Die()
         {
             Destroy(gameObject,0.5f);
             Instantiate(shootingEnemyData.explosion, transform.position + Vector3.down * 2, Quaternion.identity);

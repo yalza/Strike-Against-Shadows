@@ -27,7 +27,7 @@ namespace DATA.Scripts.Player
             }
         }
         
-        private void Die()
+        public void Die()
         {
             Destroy(gameObject);
         }

@@ -64,11 +64,7 @@ namespace DATA.Scripts.Weapon
         {
             if (Physics.Raycast(player.position, player.forward, out RaycastHit hit, skillRange))
             {
-
-
                 player.transform.DOMove(hit.point - new Vector3(1, 0, 1), 0.1f);
-                Debug.Log(hit.transform.name);
-
             }
             else
             {

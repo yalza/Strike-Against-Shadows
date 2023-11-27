@@ -7,9 +7,11 @@ namespace DATA.Scripts.UI
     {
         public float speed;
 
+        public Vector3 direction = Vector3.up;
+
         private void Update()
         {
-            transform.Rotate(Vector3.up, speed * Time.deltaTime);
+            transform.Rotate(direction, speed * Time.deltaTime);
         }
     }
 }

@@ -63,7 +63,7 @@ namespace DATA.Scripts.EnemiesAI.Monsters
             }
         }
         
-        private void Die()
+        public void Die()
         {
             _animator.SetTrigger(data.dieAnimationName);
             Destroy(gameObject, 5f);

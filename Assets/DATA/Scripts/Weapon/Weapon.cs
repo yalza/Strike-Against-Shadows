@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using DATA.Scripts.Core;
 using DATA.Scripts.Interfaces;
@@ -181,8 +180,7 @@ namespace DATA.Scripts.Weapon
                             explosion.transform.position = hit.point;
                             explosion.transform.rotation = Quaternion.LookRotation(hit.normal);
                             explosion.SetActive(true);
-
-                            Transform parent = hit.transform.parent;
+                            
                             IDamageable damageable = hit.transform.GetComponentInParent<IDamageable>();
                             if(damageable!= null)
                                 damageable.TakeDamage(damage);
