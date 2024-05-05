@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -5,6 +6,7 @@ namespace DATA.Scripts.UI
 {
     public class Login : MonoBehaviour , IPointerClickHandler
     {
+
         public void LoginOnClick()
         {
             Debug.Log("Login");

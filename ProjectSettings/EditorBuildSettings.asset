@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 4b72c383c4f74df4ca0d8e275b9dc589
   - enabled: 1
-    path: Assets/Scenes/Leve1.unity
+    path: Assets/Scenes/Level1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
     guid: 51906ee3613dbc0419c4ff7267bfbecb
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 677af3869170d3248a7c6980e9fa2db6
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 657af2057d53cac42b2c8d6580fa15fa,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 14301a892979ec14eaf06640a1629fb4,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: d10fc401d85656446a04719121a8a09a,
+      type: 2}
